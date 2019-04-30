@@ -37,6 +37,7 @@ export default class App extends React.Component {
           </View>
           <View style={styles.container}>
             <Button
+              success
               icon={
                 <Icon
                   name="arrow-right"
