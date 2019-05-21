@@ -3,6 +3,8 @@ import { createStackNavigator, createAppContainer } from
 'react-navigation';
 import PlacesPage from './Pages/PlacesPage';
 import MapPage from './Pages/MapPage';
+import MainPage from './Pages/MainPage';
+import CameraPage  from './Pages/CameraPage';
 
 class App extends React.Component {
   render() {
@@ -15,9 +17,11 @@ const AppNavigator = createStackNavigator(
   {
     PlacesPage: PlacesPage,
     MapPage,
+    MainPage,
+    CameraPage
   },
   {
-    initialRouteName: 'MapPage',
+    initialRouteName: 'MainPage',
   }
 );
 export default createAppContainer(AppNavigator);
