@@ -7,9 +7,8 @@ export default class CameraPage extends React.Component {
         super(props);
         this.state = {
             hasCameraPermission: null,
-            type: Camera.Constants.Type.back,
-            photoUri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'
-            
+            type: Camera.Constants.Type.front,
+            photoUri: 'https://facebook.github.io/react-native/docs/assets/favicon.png',
         };
 
     }
@@ -20,10 +19,9 @@ export default class CameraPage extends React.Component {
     }
 
     btnSnap = async () => {
-        alert(this.state.photoUri);
         if (this.camera) {
             let photo = await this.camera.takePictureAsync();
-            alert(`${photo.uri} ,  ${photo.width}, ${photo.height} `);
+            alert(`${photo.uri} ,\n ${photo.width},\n ${photo.height} `);
             this.setState({photoUri: photo.uri});
         }
     };
@@ -87,7 +85,6 @@ export default class CameraPage extends React.Component {
                         <Image
                             style={{width: 150, height: 150}}
                             source={{ uri: this.state.photoUri }}
-                            //source={require('../assets/placeHolder.png')}
                         />
                     </View>
                 </View>
