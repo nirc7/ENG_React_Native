@@ -3,11 +3,16 @@ import { Text, View, TouchableOpacity, Image } from 'react-native';
 import { Camera, Permissions } from 'expo';
 
 export default class CameraPage extends React.Component {
-    state = {
-        hasCameraPermission: null,
-        type: Camera.Constants.Type.back,
-        photoUri: '../assets/placeHolder.png'
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            hasCameraPermission: null,
+            type: Camera.Constants.Type.back,
+            photoUri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'
+            
+        };
+
+    }
 
     async componentDidMount() {
         const { status } = await Permissions.askAsync(Permissions.CAMERA);
@@ -15,10 +20,11 @@ export default class CameraPage extends React.Component {
     }
 
     btnSnap = async () => {
-        alert(1);
+        alert(this.state.photoUri);
         if (this.camera) {
-          let photo = await this.camera.takePictureAsync();
-          alert(`${photo.uri} ,  ${photo.width}, ${photo.height} `);
+            let photo = await this.camera.takePictureAsync();
+            alert(`${photo.uri} ,  ${photo.width}, ${photo.height} `);
+            this.setState({photoUri: photo.uri});
         }
     };
 
@@ -66,15 +72,22 @@ export default class CameraPage extends React.Component {
                             style={{ width: 100 }}
                             onPress={this.btnSnap}>
                             <Image
-
+                                style={{width: 50, height: 50}}
                                 source={require('../assets/shutter.png')}
                             />
                         </TouchableOpacity>
                     </View>
-                    <View>
-                        <Image 
-                            style={{flex:1 , width:150}}
+                    <View >
+                        <Image
+                            style={{width: 50, height: 50}}
+                            source={require('../assets/placeHolder.png')}
+                        />
+                    </View>
+                    <View >
+                        <Image
+                            style={{width: 150, height: 150}}
                             source={{ uri: this.state.photoUri }}
+                            //source={require('../assets/placeHolder.png')}
                         />
                     </View>
                 </View>
