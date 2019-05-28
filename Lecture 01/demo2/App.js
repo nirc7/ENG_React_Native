@@ -5,6 +5,7 @@ import PlacesPage from './Pages/PlacesPage';
 import MapPage from './Pages/MapPage';
 import MainPage from './Pages/MainPage';
 import CameraPage  from './Pages/CameraPage';
+import PushPage  from './Pages/PushPage';
 
 class App extends React.Component {
   render() {
@@ -18,7 +19,8 @@ const AppNavigator = createStackNavigator(
     PlacesPage: PlacesPage,
     MapPage,
     MainPage,
-    CameraPage
+    CameraPage,
+    PushPage
   },
   {
     initialRouteName: 'MainPage',
