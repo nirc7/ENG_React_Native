@@ -42,7 +42,7 @@ public class WebService : System.Web.Services.WebService
         // Create POST data and convert it to a byte array.  
         var objectToSend = new
         {
-            to = "ExponentPushToken[_...fnVyxn]",
+            to = "ExponentPushToken[cW7ZdaAv2ehnlk8Fjr-064]",
             title = "my title",
             body= "body from WSC#",
             badge = 3,
